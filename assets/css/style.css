@@ -1,0 +1,57 @@
+body {
+    background-image: url(../images/background.jpg);
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .summary {
+    display: hide;
+}
+
+.container {
+    width: 900px;
+    max-width: 90%;
+    background: rgb(156, 234, 236);
+    text-align: center;
+    opacity: 0.9;
+    border: 2px solid darkolivegreen;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+h1 {
+    margin: 20px 0 0 0;
+    padding: 20px 0 20px 0;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+}
+
+.selected {
+    background-color: yellow;
+    color:red;
+    font-weight: bold;
+}
+.quiz ul {
+    list-style: none;
+    padding: 0;
+}
+
+.quiz li {
+    cursor: pointer;
+}
+
+.start {
+    margin: 50px 0 50px 0;
+}
+h2 {
+    margin: 0 0 40px 0;
+}

@@ -23,7 +23,7 @@ $(document).ready(function() {
     });
 
     $('#submit').click(function() {
-        showResults
+        showResults();
     })
 
     function run() {
@@ -42,23 +42,52 @@ $(document).ready(function() {
     function stop() {
         clearInterval(intervalID);
         $("#timer").text("Sorry times up!!");
+        verifyAnswer();
     }
     
-    $("#form").onsubmit=function(){
-        question1 = parseInt(document.querySelector("input[name = 'question1']:checked").value);
-        console.log(question1);
+    function verifyAnswer() {
+        $("#form").on("submit", function() {
+        qOne = parseInt(document.querySelector('input[name = "question1"]:checked').value);
+        qTwo = parseInt(document.querySelector('input[name = "question2"]:checked').value);
+        qThree = parseInt(document.querySelector('input[name = "question3"]:checked').value);
+        qFour = parseInt(document.querySelector('input[name = "question4"]:checked').value);
+        qFive = parseInt(document.querySelector('input[name = "question4"]:checked').value);
+        qSix = parseInt(document.querySelector('input[name = "question4"]:checked').value);
+        qSeven = parseInt(document.querySelector('input[name = "question4"]:checked').value);
+        qEight = parseInt(document.querySelector('input[name = "question4"]:checked').value);
+        
+        
+        correctAnswer = qOne + qTwo + qThree + qFour + qFive + qSix + qSeve + qEight;
+  
+        })
     }
-    //    function timer() {
-//        if(timeRemaing === 0) {
-//            answered = true;
-//            clearInterval(intervalID);
-//
-//        }
-//    }
-//
-//    
-//        v
-//    }
+   
+    function showResults() {
+	    if ((correctAnswer + wrongAnswer + noAnswer) === qCount) {
+            $('.start').hide();
+            $('.summary').show();
+            $('.wrapper').hide();      
+            $("#correct-answer").append(correctAnswer);
+	    	$("#wrong-answer").append(wrongAnswer);
+	    	$("#no-answer").append(noAnswer);
+	    } 
+    }
+    
+    $("#reset").on("click", function(e) {
+        e.preventDefault();
+        $('.start').show();
+        $('.summary').hide();
+        $('.wrapper').hide();
+        correctCount = 0;
+		wrongCount = 0;
+		unanswerCount = 0;
+        run()
+        
+    });
+
+})
+
+
 
 
 
@@ -68,6 +97,3 @@ $(document).ready(function() {
         // $(this).addClass('selected');
     // });
     // 
-
-});
-

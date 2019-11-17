@@ -34,7 +34,7 @@
                 <p>Where is fortune cookie invented in?</p>
                 <input type="radio" name="question2" value="0" /><strong>Hong Kong</strong>
                 <input type="radio" name="question2" value="0" /><strong>Canada</strong>
-                <input type="radio" name="question2" value="0" /><strong>USA</strong>
+                <input type="radio" name="question2" value="1" /><strong>USA</strong>
                 <input type="radio" name="question2" value="0" /><strong>Beijing</strong>
 
                 <p>What is an Aussie barbie?</p>
@@ -78,11 +78,13 @@
         </div>
 
         <div class="summary">
-            <h5>Summary page</h5>
-            <p>Congratulations you scored x out of y correct!</p>
-            <a href="#">Press to Restart Quiz</a>
+            <h5>Game Over and this is how you did:</h5>
+            <p>Correct: <span id="correct-answer"></span></p> <br>
+            <p>InCorrect: <span id="wrong-answer"></span></p> <br>
+            <p>Unanswered: <span id="no-answer"></span></p> <br>
+           
+            <button class="btn btn-success" id="reset">Play Again?</button>        </div>
         </div>
-
     </div>
 
 

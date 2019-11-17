@@ -4,13 +4,16 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
 }
 
-.wrapper .summary {
-    display: hide;
+/* .wrapper .summary { */
+    /* display: hide; */
+/* } */
+#header {
+    font-weight: bolder;
 }
 
 .container {
@@ -25,33 +28,62 @@ body {
     box-shadow: 0 0 10px 2px;
 }
 
-h1 {
+h1 { 
     margin: 20px 0 0 0;
     padding: 20px 0 20px 0;
 }
-
-a {
-    margin: 0;
-    padding: 0;
-}
-
-.selected {
-    background-color: yellow;
-    color:red;
-    font-weight: bold;
-}
-.quiz ul {
-    list-style: none;
-    padding: 0;
-}
-
-.quiz li {
-    cursor: pointer;
-}
+/*  */
+/* a { */
+    /* margin: 0; */
+    /* padding: 0; */
+/* } */
+/*  */
+/* .selected { */
+    /* background-color: yellow; */
+    /* color:red; */
+    /* font-weight: bold; */
+/* } */
+/* .quiz ul { */
+    /* list-style: none; */
+    /* padding: 0; */
+/* } */
+/*  */
+/* .quiz li { */
+    /* cursor: pointer; */
+/* } */
 
 .start {
     margin: 50px 0 50px 0;
 }
 h2 {
     margin: 0 0 40px 0;
+}
+
+input[type="submit"] {
+    background-color: darkred;
+    color: white;
+    margin: 50px 0 20px 0;
+    width: 200px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+input[type="radio"] {
+    margin: 0 5px 0 0;
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+#form {
+    margin: 30px 0 20px 0;
+}
+
+p {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 30px;
+    color:darkred;
 }

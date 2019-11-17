@@ -3,6 +3,7 @@ var wrongAnswer = 0;
 var noAnswer =0;
 var timeCount = 30;
 var intervalID;
+var qCount = 8;
 
 $(document).ready(function() {
 
@@ -23,7 +24,7 @@ $(document).ready(function() {
     });
 
     $('#submit').click(function() {
-        showResults();
+        verifyAnswer();
     })
 
     function run() {
@@ -47,19 +48,21 @@ $(document).ready(function() {
     
     function verifyAnswer() {
         $("#form").on("submit", function() {
-        qOne = parseInt(document.querySelector('input[name = "question1"]:checked').value);
-        qTwo = parseInt(document.querySelector('input[name = "question2"]:checked').value);
-        qThree = parseInt(document.querySelector('input[name = "question3"]:checked').value);
-        qFour = parseInt(document.querySelector('input[name = "question4"]:checked').value);
-        qFive = parseInt(document.querySelector('input[name = "question4"]:checked').value);
-        qSix = parseInt(document.querySelector('input[name = "question4"]:checked').value);
-        qSeven = parseInt(document.querySelector('input[name = "question4"]:checked').value);
-        qEight = parseInt(document.querySelector('input[name = "question4"]:checked').value);
+        qOne = parseInt(document.querySelector('input[name = "q1"]:checked').value);
+        qTwo = parseInt(document.querySelector('input[name = "q2"]:checked').value);
+        qThree = parseInt(document.querySelector('input[name = "q3"]:checked').value);
+        qFour = parseInt(document.querySelector('input[name = "q4"]:checked').value);
+        qFive = parseInt(document.querySelector('input[name = "q5"]:checked').value);
+        qSix = parseInt(document.querySelector('input[name = "q6"]:checked').value);
+        qSeven = parseInt(document.querySelector('input[name = "q7"]:checked').value);
+        qEight = parseInt(document.querySelector('input[name = "q8"]:checked').value);
         
         
         correctAnswer = qOne + qTwo + qThree + qFour + qFive + qSix + qSeve + qEight;
-  
+           
         })
+
+        showResults();
     }
    
     function showResults() {
@@ -78,9 +81,9 @@ $(document).ready(function() {
         $('.start').show();
         $('.summary').hide();
         $('.wrapper').hide();
-        correctCount = 0;
-		wrongCount = 0;
-		unanswerCount = 0;
+        correctAnswer = 0;
+		wrongAnswer = 0;
+		noAnswer = 0;
         run()
         
     });

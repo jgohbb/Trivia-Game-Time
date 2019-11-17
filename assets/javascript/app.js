@@ -1,7 +1,7 @@
 var correctAnswer = 0;
 var wrongAnswer = 0;
 var noAnswer =0;
-var timeCount = 10;
+var timeCount = 30;
 var intervalID;
 
 $(document).ready(function() {

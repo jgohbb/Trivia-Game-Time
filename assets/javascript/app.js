@@ -19,7 +19,6 @@ $(document).ready(function() {
     });
         
     function startGame() {
-        //preventDefault();
         $('.start').hide();
         $('.summary').hide();
         $('.wrapper').show();
@@ -41,11 +40,10 @@ $(document).ready(function() {
 
         function stop() {
             clearInterval(intervalID);
-            $("#timer").text("Sorry times up!!");
         };    
     };
 
-    $('#submit').click(function() {
+    $("#submit").click(function() {
         verifyAnswer();
     });  
 
@@ -71,7 +69,6 @@ $(document).ready(function() {
             noAnswer++;
         };
         
-
         if (parseInt(qTwo) === 1) {
             correctAnswer++;
         } else if (parseInt(qTwo) === 0) {
@@ -132,30 +129,22 @@ $(document).ready(function() {
         var wrongA = wrongAnswer;
         var noA = noAnswer;
 
-        $("#correct-answer").append(correctA);
-        $("#wrong-answer").append(wrongA);
-        $("#no-answer").append(noA); 
+        $("#correct-answer").text(correctA);
+        $("#wrong-answer").text(wrongA);
+        $("#no-answer").text(noA); 
         $('.start').hide();
         $('.summary').show();
-        $('.wrapper').hide();  
-           
+        $('.wrapper').hide();      
     };
 
-
     $("#reset").on("click", function() {
-        //e.preventDefault();
-        $('.start').hide();
-        $('.summary').hide();
-        $('.wrapper').show();
-        document.querySelector('input[name="form1"]:checked').checked = false;
-        correctAnswer = 0;
-        wrongAnswer = 0;
-        noAnswer = 0;
-        clearInterval(intervalID);
-        run();
+        timeCount = 10;
+        function myForm() {
+            document.getElementById("form").reset();
+        };
+        myForm();
         startGame();
     });
-
 
 
 });

@@ -3,7 +3,6 @@ var wrongAnswer = 0;
 var noAnswer = 0;
 var timeCount = 10;
 var intervalID;
-var qCount = 8;
 
 $(document).ready(function() {
 
@@ -33,19 +32,15 @@ $(document).ready(function() {
             timeCount--;
             $("#timer").text(timeCount);
             if (timeCount === 0) {
-                stop();
+                clearInterval(intervalID);
                 verifyAnswer();
             };
         };
-
-        function stop() {
-            clearInterval(intervalID);
-        };    
     };
 
-    $("#submit").click(function() {
+    $("#submit").on("click", function() {
         verifyAnswer();
-    });  
+    });     
 
     function verifyAnswer() {
         correctAnswer = 0;
@@ -145,6 +140,5 @@ $(document).ready(function() {
         myForm();
         startGame();
     });
-
 
 });

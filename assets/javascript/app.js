@@ -1,7 +1,7 @@
 var correctAnswer = 0;
 var wrongAnswer = 0;
-var noAnswer =0;
-var timeCount = 30;
+var noAnswer = 0;
+var timeCount = 10;
 var intervalID;
 var qCount = 8;
 
@@ -11,92 +11,151 @@ $(document).ready(function() {
         $('.start').show();
         $('.summary').hide();
         $('.wrapper').hide();       
-    }
+    };
     initialScreen();
 
-    $('.start a').click(function(e){
-        e.preventDefault();
+    $('.start a').on("click", function(){
+        startGame();
+    });
+        
+    function startGame() {
+        //preventDefault();
         $('.start').hide();
         $('.summary').hide();
         $('.wrapper').show();
-       // showQuestion();
-       run();
-    });
+        run();
+    
+        function run() {
+            clearInterval(intervalID);
+            intervalID = setInterval(decrement, 1000);
+        };
+
+        function decrement() {
+            timeCount--;
+            $("#timer").text(timeCount);
+            if (timeCount === 0) {
+                stop();
+                verifyAnswer();
+            };
+        };
+
+        function stop() {
+            clearInterval(intervalID);
+            $("#timer").text("Sorry times up!!");
+        };    
+    };
 
     $('#submit').click(function() {
         verifyAnswer();
-    })
+    });  
 
-    function run() {
-        clearInterval(intervalID);
-        intervalID = setInterval(decrement, 1000);
-    }
-
-    function decrement() {
-        timeCount--;
-        $("#timer").text(timeCount);
-        if (timeCount === 0) {
-            stop();
-        }
-    }
-
-    function stop() {
-        clearInterval(intervalID);
-        $("#timer").text("Sorry times up!!");
-        verifyAnswer();
-    }
-    
     function verifyAnswer() {
-        $("#form").on("submit", function() {
-        qOne = parseInt(document.querySelector('input[name = "q1"]:checked').value);
-        qTwo = parseInt(document.querySelector('input[name = "q2"]:checked').value);
-        qThree = parseInt(document.querySelector('input[name = "q3"]:checked').value);
-        qFour = parseInt(document.querySelector('input[name = "q4"]:checked').value);
-        qFive = parseInt(document.querySelector('input[name = "q5"]:checked').value);
-        qSix = parseInt(document.querySelector('input[name = "q6"]:checked').value);
-        qSeven = parseInt(document.querySelector('input[name = "q7"]:checked').value);
-        qEight = parseInt(document.querySelector('input[name = "q8"]:checked').value);
-        
-        
-        correctAnswer = qOne + qTwo + qThree + qFour + qFive + qSix + qSeve + qEight;
-           
-        })
-
-        showResults();
-    }
-   
-    function showResults() {
-	    if ((correctAnswer + wrongAnswer + noAnswer) === qCount) {
-            $('.start').hide();
-            $('.summary').show();
-            $('.wrapper').hide();      
-            $("#correct-answer").append(correctAnswer);
-	    	$("#wrong-answer").append(wrongAnswer);
-	    	$("#no-answer").append(noAnswer);
-	    } 
-    }
-    
-    $("#reset").on("click", function(e) {
-        e.preventDefault();
-        $('.start').show();
-        $('.summary').hide();
-        $('.wrapper').hide();
         correctAnswer = 0;
-		wrongAnswer = 0;
-		noAnswer = 0;
-        run()
+        wrongAnswer = 0;
+        noAnswer = 0;
+
+        var qOne = $("input[name='q1']:checked").val();
+        var qTwo = $("input[name='q2']:checked").val();
+        var qThree = $("input[name='q3']:checked").val();
+        var qFour = $("input[name='q4']:checked").val();
+        var qFive = $("input[name='q5']:checked").val();
+        var qSix = $("input[name='q6']:checked").val();
+        var qSeven = $("input[name='q7']:checked").val();
+        var qEight = $("input[name='q8']:checked").val();
+           
+        if (parseInt(qOne) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qOne) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
         
+
+        if (parseInt(qTwo) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qTwo) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+
+        if (parseInt(qThree) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qThree) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+
+        if (parseInt(qFour) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qFour) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+
+        if (parseInt(qFive) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qFive) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+
+        if (parseInt(qSix) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qSix) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+
+        if (parseInt(qSeven) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qSeven) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+
+        if (parseInt(qEight) === 1) {
+            correctAnswer++;
+        } else if (parseInt(qEight) === 0) {
+            wrongAnswer++;
+        } else {
+            noAnswer++;
+        };
+       
+        var correctA = correctAnswer;
+        var wrongA = wrongAnswer;
+        var noA = noAnswer;
+
+        $("#correct-answer").append(correctA);
+        $("#wrong-answer").append(wrongA);
+        $("#no-answer").append(noA); 
+        $('.start').hide();
+        $('.summary').show();
+        $('.wrapper').hide();  
+           
+    };
+
+
+    $("#reset").on("click", function() {
+        //e.preventDefault();
+        $('.start').hide();
+        $('.summary').hide();
+        $('.wrapper').show();
+        document.querySelector('input[name="form1"]:checked').checked = false;
+        correctAnswer = 0;
+        wrongAnswer = 0;
+        noAnswer = 0;
+        clearInterval(intervalID);
+        run();
+        startGame();
     });
 
-})
 
 
-
-
-
-    // act like a radio button with highlight
-    // $('.quiz ul').on('click', 'li', function() {
-        // $('.selected').removeClass('selected');
-        // $(this).addClass('selected');
-    // });
-    // 
+});

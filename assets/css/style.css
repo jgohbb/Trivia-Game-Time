@@ -61,7 +61,7 @@ input[type="radio"] {
 p {
     font-size: 21px;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 5px;
     color:darkred;
 }
 
@@ -70,4 +70,12 @@ p {
     font-weight: bolder;
     background-color: darkgreen;
     box-shadow: 0 0 10px 2px;
+}
+
+hr {
+    width: 400px;
+}
+
+#timer {
+    font-weight: bolder;
 }

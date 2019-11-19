@@ -1,10 +1,10 @@
 var correctAnswer = 0;
 var wrongAnswer = 0;
 var noAnswer = 0;
-var timeCount = 10;
+var timeCount = 30;
 var intervalID;
 
-$(document).ready(function() {
+//$(document).ready(function() {
 
     function initialScreen() {
         $('.start').show();
@@ -133,7 +133,7 @@ $(document).ready(function() {
     };
 
     $("#reset").on("click", function() {
-        timeCount = 10;
+        timeCount = 30;
         function myForm() {
             document.getElementById("form").reset();
         };
@@ -141,4 +141,4 @@ $(document).ready(function() {
         startGame();
     });
 
-});
+//});

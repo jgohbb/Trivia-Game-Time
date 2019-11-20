@@ -4,7 +4,7 @@ var noAnswer = 0;
 var timeCount = 30;
 var intervalID;
 
-//$(document).ready(function() {
+$(document).ready(function() {
 
     function initialScreen() {
         $('.start').show();
@@ -39,7 +39,10 @@ var intervalID;
     };
 
     $("#submit").on("click", function() {
-        verifyAnswer();
+        $('.wrapper').hide();
+        $('.start').hide();
+        $('.summary').show();
+        verifyAnswer(); 
     });     
 
     function verifyAnswer() {
@@ -133,6 +136,9 @@ var intervalID;
     };
 
     $("#reset").on("click", function() {
+        $('.start').hide();
+        $('.summary').hide();
+        $('.wrapper').show();
         timeCount = 30;
         function myForm() {
             document.getElementById("form").reset();
@@ -141,4 +147,5 @@ var intervalID;
         startGame();
     });
 
-//});
+});
+//issue on submit button

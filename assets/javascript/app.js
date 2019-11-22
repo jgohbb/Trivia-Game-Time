@@ -38,7 +38,8 @@ $(document).ready(function() {
         };
     };
 
-    $("#submit").on("click", function() {
+    $("#submit").on("click", function(event) {
+        event.preventDefault();  //usually in form should incorporate prevent default
         $('.wrapper').hide();
         $('.start').hide();
         $('.summary').show();
@@ -131,8 +132,8 @@ $(document).ready(function() {
         $("#wrong-answer").text(wrongA);
         $("#no-answer").text(noA); 
         $('.start').hide();
-        $('.summary').show();
         $('.wrapper').hide();      
+        $('.summary').show();
     };
 
     $("#reset").on("click", function() {
